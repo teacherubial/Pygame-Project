@@ -1,16 +1,52 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+# Pygame Boilerplate
+# Author: Ubial
+# 2021 Version
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+import pygame
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+pygame.init()
+
+WHITE = (255, 255, 255)
+BLACK = (  0,   0,   0)
+RED   = (255,   0,   0)
+GREEN = (  0, 255,   0)
+BLUE  = (  0,   0, 255)
+BGCOLOUR = (100, 100, 255)
+
+SCREEN_WIDTH  = 800
+SCREEN_HEIGHT = 600
+SCREEN_SIZE   = (SCREEN_WIDTH, SCREEN_HEIGHT)
+WINDOW_TITLE  = "<<Your Title Here>>"
+
+def main() -> None:
+    """Driver of the Python script"""
+    # Create the screen
+    screen = pygame.display.set_mode(SCREEN_SIZE)
+    pygame.display.set_caption(WINDOW_TITLE)
+
+    # Create some local variables that describe the environment
+    done = False
+    clock = pygame.time.Clock()
+
+    # ----------- MAIN LOOP
+    while not done:
+        # ----------- EVENT LISTENER
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                done = True
+
+        # ----------- CHANGE ENVIRONMENT
+
+        # ----------- DRAW THE ENVIRONMENT
+        screen.fill(BGCOLOUR)      # fill with bgcolor
+
+        # Update the screen
+        pygame.display.flip()
+
+        # ----------- CLOCK TICK
+        clock.tick(75)
+
+
+if __name__ == "__main__":
+    main()
